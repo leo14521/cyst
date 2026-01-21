@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트리니티 난소낭종 경화술 센터 - Ovarian Cyst Sclerotherapy</title>
+    
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: "Pretendard Variable", Pretendard, sans-serif; background-color: #FFFFFF; overflow-x: hidden; }
+        .serif { font-family: "Noto Serif KR", serif; }
+        
+        /* 케일 & 베이지 프리미엄 시스템 */
+        :root {
+            --kale-deep: #3E522D;
+            --kale-muted: #5B6D4A;
+            --beige-site: #F4EBE2; 
+            --beige-bg: #FDFCFB;
+            --text-dark: #1A1F16;
+        }
+
+        .text-primary { color: var(--kale-deep); } 
+        .bg-primary { background-color: var(--kale-deep); }
+        .bg-primary-dark { background-color: #2D3B1A; }
+        .bg-primary-light { background-color: #F1F4ED; }
+        .border-primary { border-color: var(--kale-deep); }
+        
+        /* 이미지 박스 */
+        .img-box {
+            background-color: var(--beige-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+        }
+        .img-box img, .img-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* 폼 스타일 */
+        .form-input {
+            width: 100%;
+            padding: 18px 24px;
+            border: 1px solid #E5E7EB;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+        .form-input:focus {
+            border-color: var(--kale-deep);
+            box-shadow: 0 0 0 4px rgba(62, 82, 45, 0.05);
+        }
+
+        .btn-kale {
+            background-color: var(--kale-deep);
+            color: #ffffff;
+            transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            box-shadow: 0 4px 12px rgba(62, 82, 45, 0.1);
+        }
+        .btn-kale:hover {
+            background-color: #2D3B1A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(62, 82, 45, 0.2);
+        }
+
+        /* 사이드 인디케이터 */
+        .side-guide {
+            position: fixed;
+            left: 40px; 
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .guide-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #A1A89A;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            flex-direction: row; 
+        }
+        .guide-label {
+            font-size: 12px; 
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateX(-10px); 
+            transition: all 0.3s ease;
+            color: var(--kale-deep);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 10px;
+            border-radius: 4px;
+            order: 2; 
+            white-space: nowrap;
+        }
+        .guide-dot {
+            width: 6px;
+            height: 6px;
+            background: #D1D5DB;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            order: 1; 
+        }
+        .guide-item:hover .guide-label { opacity: 1; transform: translateX(0); }
+        .guide-item:hover .guide-dot { background: var(--kale-deep); transform: scale(1.5); }
+        .guide-item.active .guide-dot { background: var(--kale-deep); height: 30px; border-radius: 10px; }
+        .guide-item.active .guide-label { opacity: 1; transform: translateX(0); }
+
+        /* FAQ 아이콘 박스 */
+        .faq-icon-box {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F1F4ED;
+            color: var(--kale-deep);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .group:hover .faq-icon-box {
+            background-color: var(--kale-deep);
+            color: white;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body class="text-[#3A4035] antialiased">
+
+    <aside class="side-guide hidden xl:flex">
+        <a href="#hero" class="guide-item active">
+            <div class="guide-dot"></div>
+            <span class="guide-label">인트로</span>
+        </a>
+        <a href="#definition" class="guide-item">
+            <div class="guide-dot"></div>
+            <span class="guide-label">경화술이란?</span>
+        </a>
+        <a href="#process" class="guide-item">
+            <div class="guide-dot"></div>
+            <span class="guide-label">진행 과정</span>
+        </a>
+        <a href="#visuals" class="guide-item">
+            <div class="guide-dot"></div>
+            <span class="guide-label">치료 증례</span>
+        </a>
+        <a href="#benefits" class="guide-item">
+            <div class="guide-dot"></div>
+            <span class="guide-label">장점 비교</span>
+        </a>
+        <a href="#faq" class="guide-item">
+            <div class="guide-dot"></div>
+            <span class="guide-label">FAQ</span>
+        </a>
+    </aside>
+
+    <section id="hero" class="relative w-full min-h-screen bg-[#F4EBE2] flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl w-full mx-auto px-6 py-24 lg:py-0 h-full flex items-center">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 w-full">
+                
+                <div class="w-full lg:w-1/2 space-y-8 text-center lg:text-left z-10">
+                    <div class="flex items-center justify-center lg:justify-start gap-3">
+                        <span class="w-12 h-[1px] bg-[#3E522D]/30"></span>
+                        <span class="text-[#3E522D] text-[11px] font-black tracking-[0.2em] uppercase">Ovarian Cyst Clinic</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-[72px] font-bold text-[#1A1F16] leading-[1.1] serif tracking-tight break-keep">
+                        난소낭종,<br>
+                        <span class="text-primary italic relative inline-block">
+                            사라지는 것을 눈으로 확인하세요
+                            <svg class="absolute -bottom-2 left-0 w-full h-3 text-primary/20" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-[17px] lg:text-[20px] text-[#555D4E] leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium opacity-90 break-keep">
+                        수술 없는 비수술적 치료, <strong>경화술(Sclerotherapy)</strong>.<br>
+                        특수 경화제를 사용하여 낭종을 씻어내고 화학적으로 제거합니다.
+                        정상 난소는 그대로 보존하세요.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#consultation" class="btn-kale px-10 py-5 rounded-2xl font-black text-xl shadow-xl flex items-center justify-center gap-2">
+                            상담 신청하기 <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#process" class="px-10 py-5 rounded-2xl font-bold text-lg text-[#3A4035] border border-[#3A4035]/20 hover:bg-white transition-all flex items-center justify-center">
+                            치료과정 보기
+                        </a>
+                    </div>
+                </div>
+
+   <div class="w-full lg:w-1/2 relative">
+    <div class="relative w-full aspect-[4/3] lg:aspect-square max-h-[600px]">
+        <div class="absolute inset-0 bg-[#E8DEC8] rounded-[2.5rem] lg:rounded-full transform rotate-6 opacity-40 blur-sm"></div>
+        
+        <div class="img-box w-full h-full rounded-[2.5rem] shadow-2xl bg-black relative z-10 border-4 border-white/50 overflow-hidden group">
+            
+            <video id="videoPlayer" autoplay muted loop playsinline class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                <source src="cyst2.mp4" type="video/mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+            </video>
+            
+            <div class="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border-l-4 border-primary pointer-events-none">
+                <p class="text-[13px] text-primary font-black uppercase tracking-wider mb-1">Live Ultrasound</p>
+                <p class="text-[16px] font-bold text-gray-800 leading-tight">"낭종 내부 액체가 흡입되어<br>실시간으로 줄어드는 모습"</p>
+            </div>
+
+            <div id="playBtn" onclick="togglePlay()" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center animate-pulse cursor-pointer hover:bg-white/30 transition-all z-20">
+                <i data-lucide="play" class="w-8 h-8 text-white fill-current"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="definition" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                <div class="lg:w-1/2 sticky top-32">
+                    <span class="text-primary font-black tracking-[0.5em] text-[11px] uppercase mb-6 block">Treatment Definition</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-[#1A1F16] mb-8 serif leading-tight">
+                        난소낭종 경화술이란?<br>
+                        <span class="text-[24px] lg:text-[32px] text-[#6B7264] font-medium serif italic block mt-2">Ovarian Cyst Aspiration & Sclerotherapy</span>
+                    </h2>
+                    
+                     <div class="mb-8 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                         <img src="https://www.trinityclinic.co.kr/trinity/file/IMAGE/uu/2bd2dac0d600495a8298103471c0a2cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="경화술 모식도" class="w-full h-64 object-cover">
+                    </div>
+
+                    <p class="text-[#555D4E] text-[18px] leading-relaxed font-medium break-keep">
+                        난소낭종 내부의 액체 성분을 정교하게 제거하고, 특수 경화제(알코올 등)를 주입하여 
+                        낭종 내벽의 <strong class="text-primary bg-primary/10 px-1">염증 반응과 섬유화를 유도</strong>, 
+                        화학적으로 낭종을 괴사시키는 치료법입니다.
+                    </p>
+                </div>
+                
+                <div class="lg:w-1/2 space-y-6">
+                    <div class="bg-[#FBFBFA] p-10 rounded-[2.5rem] border border-[#E9E4DB]">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-6">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1A1F16] mb-4">단순 흡입술의 한계</h3>
+                        <p class="text-[#6B7264] leading-relaxed">
+                            단순히 주사기로 액체만 뺄 경우, 낭종 내벽의 세포가 살아있어 다시 액체가 차오르는 
+                            <strong>재발 확률이 매우 높습니다.</strong>
+                        </p>
+                    </div>
+
+                    <div class="bg-primary-deep text-white p-10 rounded-[2.5rem] border border-primary bg-[#3E522D] shadow-xl relative overflow-hidden group">
+                         <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white mb-6 backdrop-blur-sm relative z-10">
+                            <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 relative z-10">경화술의 핵심 솔루션</h3>
+                        <p class="text-[#DDE4D5] leading-relaxed relative z-10">
+                            효과적인 경화제(알코올)를 사용하여 내벽 세포를 완전히 파괴함으로써 
+                            <strong>재발률을 획기적으로 낮추고 난소 기능을 보존</strong>합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-32 bg-[#FDFCFB]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-primary font-black tracking-[0.5em] text-[11px] uppercase mb-6 block">Process Flow</span>
+                <h2 class="text-4xl font-bold text-[#1A1F16] serif italic">경화술 진행 과정</h2>
+                <p class="mt-6 text-[#6B7264] text-lg">입원 없이, 통증 없이. 당일 일상으로 복귀합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-[2rem] border border-[#E9E4DB] hover:border-primary/50 hover:shadow-lg transition-all group">
+                    <span class="block text-4xl font-black text-[#E9E4DB] group-hover:text-primary transition-colors mb-4">01</span>
+                    <h4 class="text-xl font-bold text-[#1A1F16] mb-3">수면 마취</h4>
+                    <p class="text-[#6B7264] text-sm leading-relaxed">
+                        불안감과 통증 조절을 위해 안전한 수면 마취를 시행합니다. (알코올 주입 시 통증 완벽 차단)
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-[#E9E4DB] hover:border-primary/50 hover:shadow-lg transition-all group">
+                    <span class="block text-4xl font-black text-[#E9E4DB] group-hover:text-primary transition-colors mb-4">02</span>
+                    <h4 class="text-xl font-bold text-[#1A1F16] mb-3">경화술 시행</h4>
+                    <p class="text-[#6B7264] text-sm leading-relaxed">
+                        초음파 유도 하에 낭종 내부 액체를 제거하고 경화제를 주입하여 화학적 괴사를 유도합니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-[#E9E4DB] hover:border-primary/50 hover:shadow-lg transition-all group">
+                    <span class="block text-4xl font-black text-[#E9E4DB] group-hover:text-primary transition-colors mb-4">03</span>
+                    <h4 class="text-xl font-bold text-[#1A1F16] mb-3">안정 및 확인</h4>
+                    <p class="text-[#6B7264] text-sm leading-relaxed">
+                        원내 회복실에서 약 2시간 안정을 취한 뒤, 초음파로 상태를 최종 확인합니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-[#E9E4DB] hover:border-primary/50 hover:shadow-lg transition-all group">
+                    <span class="block text-4xl font-black text-[#E9E4DB] group-hover:text-primary transition-colors mb-4">04</span>
+                    <h4 class="text-xl font-bold text-[#1A1F16] mb-3">당일 퇴원</h4>
+                    <p class="text-[#6B7264] text-sm leading-relaxed">
+                        퇴원 후 바로 일상생활이 가능합니다. 바쁜 현대인에게 최적화된 치료입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visuals" class="py-32 bg-[#2D3B1A] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <span class="text-[#A2AD91] font-black tracking-[0.5em] text-[11px] uppercase mb-4 block">Clinical Evidence</span>
+                    <h2 class="text-4xl font-bold serif italic">실제 치료 사례</h2>
+                </div>
+                <p class="text-[#DDE4D5] mt-4 md:mt-0 max-w-md text-right md:text-left">
+                    시술 과정에서 낭종이 물리적으로 사라지는 것을<br>의료진이 직접 확인하며 진행합니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group">
+    <div class="aspect-square bg-black rounded-[2rem] overflow-hidden border border-white/10 relative mb-4">
+        <img src="./images/cyst-before2.gif" 
+             alt="시술 전 5cm 자궁내막종" 
+             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+             onerror="this.src='https://dummyimage.com/600x600/333/fff&text=Before+5cm'">
+        
+        <div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Before</div>
+    </div>
+    <p class="text-lg font-bold">1. 시술 전</p>
+    <p class="text-[#A2AD91] text-sm">5cm 크기의 자궁내막종 확인</p>
+</div>
+
+                <div class="group">
+                    <div class="aspect-square bg-black rounded-[2rem] overflow-hidden border border-white/10 relative mb-4">
+                        <img src="./images/cyst-aspiration2.gif" alt="세침흡인 시행" class="opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://dummyimage.com/600x600/333/fff&text=Aspiration'">
+                    </div>
+                    <p class="text-lg font-bold">2. 세침 흡인</p>
+                    <p class="text-[#A2AD91] text-sm">낭종 내측으로 정밀하게 접근</p>
+                </div>
+
+                <div class="group">
+                    <div class="aspect-square bg-black rounded-[2rem] overflow-hidden border border-white/10 relative mb-4">
+                        <img src="./images/cyst-injection2.gif" alt="경화제 투입" class="opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://dummyimage.com/600x600/333/fff&text=Injection'">
+                    </div>
+                    <p class="text-lg font-bold">3. 경화제 투입</p>
+                    <p class="text-[#A2AD91] text-sm">내용물 제거 후 알코올 세척/경화</p>
+                </div>
+
+                <div class="group">
+                    <div class="aspect-square bg-black rounded-[2rem] overflow-hidden border border-white/10 relative mb-4">
+                        <img src="./images/cyst-after.gif" alt="낭종 소실" class="opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://dummyimage.com/600x600/333/fff&text=After+Clean'">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Complete</div>
+                    </div>
+                    <p class="text-lg font-bold text-primary">4. 시술 종료</p>
+                    <p class="text-[#A2AD91] text-sm">낭종이 완전히 사라진 모습</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-32 bg-[#FBFBFA]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-primary font-black tracking-[0.5em] text-[11px] uppercase mb-6 block">Why Sclerotherapy?</span>
+                <h2 class="text-4xl font-bold text-[#1A1F16] serif italic">경화술의 압도적 장점</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-12 bg-white rounded-[3rem] border border-[#E9E4DB] shadow-sm flex flex-col items-start hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-[#F4EBE2] rounded-2xl flex items-center justify-center text-primary mb-8">
+                        <i data-lucide="baby" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1F16] mb-4">가임력(AMH) 완벽 보존</h3>
+                    <p class="text-[#6B7264] text-lg leading-relaxed">
+                        수술적 절제는 불가피하게 정상 난소 조직의 손실을 가져와 난소 기능(AMH) 저하를 유발할 수 있습니다.<br>
+                        반면, <strong>경화술은 낭종만 타겟팅하므로 정상 난소 조직에 영향이 거의 없어</strong> 향후 임신 계획이 있는 분들께 가장 유리합니다.
+                    </p>
+                </div>
+
+                <div class="p-12 bg-white rounded-[3rem] border border-[#E9E4DB] shadow-sm flex flex-col items-start hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-[#F4EBE2] rounded-2xl flex items-center justify-center text-primary mb-8">
+                        <i data-lucide="activity" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1F16] mb-4">전신마취 NO, 빠른 회복</h3>
+                    <p class="text-[#6B7264] text-lg leading-relaxed">
+                        전신마취가 필요 없어 신체적 부담이 적습니다.<br>
+                        회복 속도가 매우 빨라 <strong>시술 직후 2시간 휴식 후 퇴원</strong>하며, 바로 다음 날부터 무리 없는 일상생활이 가능합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-primary font-black tracking-[0.5em] text-[11px] uppercase mb-6 block">Q & A</span>
+                <h2 class="text-4xl font-bold text-[#1A1F16] serif italic">자주 묻는 질문</h2>
+                <p class="text-[#6B7264] mt-4">환자분들이 가장 많이 걱정하시는 부분에 대해 답변드립니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-[#FDFCFB] p-10 rounded-[2.5rem] border border-[#E9E4DB] hover:border-primary/30 transition-all group">
+                    <div class="faq-icon-box">
+                        <span class="font-serif font-bold text-xl">Q1</span>
+                    </div>
+                    <h4 class="font-bold text-lg text-[#1A1F16] mb-4 min-h-[56px] flex items-center">난소 기능에<br>영향을 주지 않나요?</h4>
+                    <p class="text-[#6B7264] text-[15px] leading-relaxed">
+                        자궁내막종 절제 수술은 정상 난소 조직의 손실 우려가 있으나, <strong>경화요법은 정상 조직에 영향이 거의 없습니다.</strong> 3cm 이상의 자궁내막종, 장액성/점액성 낭종 등 대부분의 양성 종양에 안전하게 적용 가능합니다.
+                    </p>
+                </div>
+
+                <div class="bg-[#FDFCFB] p-10 rounded-[2.5rem] border border-[#E9E4DB] hover:border-primary/30 transition-all group">
+                    <div class="faq-icon-box">
+                        <span class="font-serif font-bold text-xl">Q2</span>
+                    </div>
+                    <h4 class="font-bold text-lg text-[#1A1F16] mb-4 min-h-[56px] flex items-center">알코올 유출 위험은<br>없나요?</h4>
+                    <p class="text-[#6B7264] text-[15px] leading-relaxed">
+                        이론적으로 파열 가능성은 있으나, <strong>숙련된 의료진의 경험</strong>이 중요합니다. 내용물을 완전히 제거하고 알코올로 충분한 경화 과정을 거치면 유출 없이 안전하고 성공적인 치료가 가능합니다.
+                    </p>
+                </div>
+
+                <div class="bg-[#FDFCFB] p-10 rounded-[2.5rem] border border-[#E9E4DB] hover:border-primary/30 transition-all group">
+                    <div class="faq-icon-box">
+                        <span class="font-serif font-bold text-xl">Q3</span>
+                    </div>
+                    <h4 class="font-bold text-lg text-[#1A1F16] mb-4 min-h-[56px] flex items-center">재발률은 높은가요?</h4>
+                    <p class="text-[#6B7264] text-[15px] leading-relaxed">
+                        재발률은 약 <strong>5~10% 내외</strong>입니다. 낭종이 클수록 재발 가능성이 있으며, 7~8cm 이내는 대부분 1회로 치료되나 9~10cm 이상의 거대 낭종은 드물게 2차 시술이 필요할 수 있습니다.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="consultation" class="py-32 bg-[#2D3B1A] text-white">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="bg-white text-[#1A1F16] rounded-[4rem] shadow-2xl overflow-hidden md:flex">
+                <div class="md:w-5/12 bg-[#F8F6F3] p-12 flex flex-col justify-center border-r border-[#E9E4DB]">
+                    <h3 class="text-3xl font-bold text-[#1A1F16] serif mb-8 leading-tight italic">Start Your<br>Healthy Life.</h3>
+                    <p class="text-[#555D4E] mb-8 leading-relaxed font-medium">난소 보존 치료, 지금 상담받으세요.</p>
+                    <ul class="space-y-4 text-sm text-[#555D4E] font-bold tracking-tight">
+                        <li class="flex items-center gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-primary"></i> 1:1 맞춤형 정밀 상담</li>
+                        <li class="flex items-center gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-primary"></i> 실비 보험 적용 안내</li>
+                    </ul>
+                </div>
+                <div class="md:w-7/12 p-12 bg-white">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[11px] font-black text-primary mb-2 uppercase tracking-widest">Name</label>
+                                <input type="text" placeholder="성함" class="form-input" required>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-black text-primary mb-2 uppercase tracking-widest">Phone</label>
+                                <input type="tel" placeholder="연락처" class="form-input" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-black text-primary mb-2 uppercase tracking-widest">Inquiry</label>
+                            <textarea rows="3" placeholder="궁금하신 점을 남겨주세요." class="form-input resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-kale py-5 rounded-[2rem] font-black text-lg shadow-xl">상담 신청하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#FBFBFA] text-[#A1A89A] py-24 border-t border-[#E9E4DB]/50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#1A1F16] mb-10 serif italic">Trinity Ovarian Cyst Clinic</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#" class="bg-white border border-[#E9E4DB] hover:border-primary text-[#3A4035] font-bold py-4 px-10 rounded-[2rem] transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-lg">
+                    <i data-lucide="phone" class="w-5 h-5"></i> 전화 상담하기
+                </a>
+                <a href="#" class="bg-white border border-[#E9E4DB] hover:border-primary text-[#3A4035] font-bold py-4 px-10 rounded-[2rem] transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-lg">
+                    <i data-lucide="calendar" class="w-5 h-5"></i> 네이버 예약
+                </a>
+            </div>
+            <p class="mt-16 text-[11px] font-bold tracking-[0.2em] uppercase opacity-40">Premium Women's Healthcare Center</p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePlay() {
+        const video = document.getElementById('videoPlayer');
+        const btn = document.getElementById('playBtn');
+        
+        // 1. 버튼 숨기기
+        btn.style.display = 'none';
+        
+        // 2. 비디오 소리 켜기 (소리가 필요 없으면 아래 줄을 지우세요)
+        video.muted = false;
+
+        // 3. 비디오 재생 확인
+        video.play();
+    }
+        // 아이콘 초기화
+        lucide.createIcons();
+
+        // 스크롤 스파이 (사이드 네비게이션 활성화 로직)
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'definition', 'process', 'visuals', 'benefits', 'faq'];
+            const guides = document.querySelectorAll('.side-guide .guide-item');
+            
+            let current = '';
+
+            sections.forEach((section) => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    // 화면 중앙 인식 (헤더 높이 고려)
+                    if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
+                        current = section;
+                    }
+                }
+            });
+
+            guides.forEach((guide) => {
+                guide.classList.remove('active');
+                if (guide.getAttribute('href') === `#${current}`) {
+                    guide.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
