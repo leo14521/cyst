@@ -237,6 +237,27 @@
       .safe-area-pb {
         padding-bottom: env(safe-area-inset-bottom);
       }
+
+      .option-chip {
+        border: 1px solid #dfe5d6;
+        background: #ffffff;
+        color: #3a4035;
+        transition: all 0.2s ease;
+      }
+      .option-chip:hover {
+        border-color: var(--kale-deep);
+      }
+      .option-chip.active {
+        border-color: var(--kale-deep);
+        background: #f1f4ed;
+        color: var(--kale-deep);
+        font-weight: 700;
+      }
+
+      .result-card {
+        border: 1px solid #e9e4db;
+        background: #ffffff;
+      }
     </style>
   </head>
   <body class="text-[#3A4035] antialiased">
@@ -358,14 +379,15 @@
                   </p>
                 </div>
 
-                <div
+                <a
                   id="playBtn"
-                  onclick="togglePlay()"
-                  class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center animate-pulse cursor-pointer hover:bg-white/30 transition-all z-20">
+                  href="#visuals"
+                  class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center animate-pulse cursor-pointer hover:bg-white/30 transition-all z-20"
+                  aria-label="치료 증례 섹션으로 이동">
                   <i
-                    data-lucide="play"
+                    data-lucide="images"
                     class="w-8 h-8 text-white fill-current"></i>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -661,6 +683,84 @@
               <strong>시술 직후 2시간 휴식 후 퇴원</strong>하며, 바로 다음
               날부터 무리 없는 일상생활이 가능합니다.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eligibility" class="py-24 bg-[#F8F6F2]">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <span
+            class="text-primary font-black tracking-[0.4em] text-[11px] uppercase mb-4 block"
+            >Quick Check</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1A1F16] serif italic">
+            30초 경화술 적합도 체크
+          </h2>
+          <p class="text-[#6B7264] mt-4">
+            진단을 대체하지 않지만, 상담 전 빠르게 방향을 확인하실 수 있어요.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] border border-[#E9E4DB] p-6 md:p-10 shadow-sm">
+          <div class="space-y-8" id="eligibilityForm">
+            <div>
+              <p class="font-bold text-[#1A1F16] mb-3">1) 현재 낭종 크기</p>
+              <div class="flex flex-wrap gap-2" data-question="size">
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="2">3cm 미만</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="3">3~8cm</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="1">9cm 이상</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="0">잘 모르겠어요</button>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-[#1A1F16] mb-3">2) 향후 임신 계획</p>
+              <div class="flex flex-wrap gap-2" data-question="fertility">
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="3">1~2년 내 계획 있음</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="2">계획은 있지만 미정</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="1">계획 없음</button>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-[#1A1F16] mb-3">3) 회복 속도 우선순위</p>
+              <div class="flex flex-wrap gap-2" data-question="recovery">
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="3">가능한 빠른 일상복귀 원함</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="2">보통</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="1">속도보다 다른 요소가 중요</button>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-[#1A1F16] mb-3">4) 전신마취에 대한 부담</p>
+              <div class="flex flex-wrap gap-2" data-question="anesthesia">
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="3">부담이 큼</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="2">보통</button>
+                <button type="button" class="option-chip px-4 py-2 rounded-full" data-value="1">부담 없음</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-col md:flex-row gap-3">
+            <button
+              id="evaluateBtn"
+              type="button"
+              class="btn-kale rounded-2xl px-8 py-4 font-bold text-lg">
+              적합도 결과 보기
+            </button>
+            <a
+              href="#footer"
+              class="rounded-2xl px-8 py-4 font-bold text-lg border border-[#D8DCCE] text-[#3A4035] text-center hover:bg-[#F8FAF6] transition-all">
+              바로 상담 연결하기
+            </a>
+          </div>
+
+          <div id="eligibilityResult" class="result-card mt-6 rounded-2xl p-6 hidden">
+            <p class="text-sm text-[#6B7264] mb-2">체크 결과</p>
+            <p id="eligibilityTitle" class="text-xl font-bold text-[#1A1F16]"></p>
+            <p id="eligibilityDescription" class="text-[#6B7264] mt-2 leading-relaxed"></p>
           </div>
         </div>
       </div>
@@ -1203,6 +1303,9 @@
           class="mt-16 text-[11px] font-bold tracking-[0.2em] uppercase opacity-40">
           Premium Women's Healthcare Center
         </p>
+        <p class="mt-4 text-sm text-[#6B7264]">
+          평균 상담 응답은 진료시간 기준 10~20분 내에 진행됩니다.
+        </p>
       </div>
     </footer>
 
@@ -1309,14 +1412,6 @@
     <div class="h-[60px] lg:h-0"></div>
 
     <script>
-      function togglePlay() {
-        const video = document.getElementById("videoPlayer");
-        const btn = document.getElementById("playBtn");
-        btn.style.display = "none";
-        video.muted = false;
-        video.play();
-      }
-
       // 아이콘 초기화 (플로팅 배너 아이콘 포함하여 다시 로드)
       lucide.createIcons();
 
@@ -1328,6 +1423,7 @@
           "process",
           "visuals",
           "benefits",
+          "eligibility",
           "faq",
         ];
         const guides = document.querySelectorAll(".side-guide .guide-item");
@@ -1353,6 +1449,59 @@
           }
         });
       });
+
+      // 30초 적합도 체크 로직
+      const eligibilityState = {
+        size: null,
+        fertility: null,
+        recovery: null,
+        anesthesia: null,
+      };
+
+      document.querySelectorAll("[data-question]").forEach((group) => {
+        group.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            group
+              .querySelectorAll("button")
+              .forEach((item) => item.classList.remove("active"));
+            button.classList.add("active");
+            eligibilityState[group.dataset.question] = Number(button.dataset.value);
+          });
+        });
+      });
+
+      const evaluateBtn = document.getElementById("evaluateBtn");
+      if (evaluateBtn) {
+        evaluateBtn.addEventListener("click", () => {
+          const values = Object.values(eligibilityState);
+          if (values.some((value) => value === null)) {
+            alert("모든 문항을 선택해 주세요.");
+            return;
+          }
+
+          const total = values.reduce((sum, value) => sum + value, 0);
+          const resultWrap = document.getElementById("eligibilityResult");
+          const title = document.getElementById("eligibilityTitle");
+          const description = document.getElementById("eligibilityDescription");
+
+          if (total >= 10) {
+            title.textContent = "경화술 우선 상담을 추천드려요.";
+            description.textContent =
+              "비수술·가임력 보존·빠른 회복 관점에서 적합도가 높게 나타났습니다. 영상과 검사 결과를 바탕으로 1:1 맞춤 계획을 확인해보세요.";
+          } else if (total >= 7) {
+            title.textContent = "정밀 상담을 통해 치료 방향 확인이 필요해요.";
+            description.textContent =
+              "경화술 가능성이 있지만 낭종 위치/성상/크기에 따라 다른 옵션이 유리할 수 있습니다. 상담에서 최적의 치료 순서를 안내드립니다.";
+          } else {
+            title.textContent = "다른 치료 옵션과 비교 상담을 권장드려요.";
+            description.textContent =
+              "현재 응답 기준으로는 수술적 치료 포함 비교가 필요할 수 있습니다. 안전성과 회복 계획을 함께 설명드리겠습니다.";
+          }
+
+          resultWrap.classList.remove("hidden");
+          resultWrap.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      }
 
       // ------------------------------------------
       // [추가됨] 미니 갤러리 슬라이드 로직
