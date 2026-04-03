@@ -1271,6 +1271,94 @@
       </div>
     </section>
 
+    <!-- 진료시간 & 오시는길 -->
+    <section id="location" class="py-24 lg:py-32 bg-white border-t border-[#E9E4DB]/50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-[#3E522D] font-bold tracking-[0.3em] text-[11px] uppercase mb-4 block">Visit Us</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-[#1A1F16] font-kopub leading-tight">
+            진료시간과 <span class="italic text-[#3E522D]">오시는길</span>
+          </h2>
+          <p class="text-[#6B7264] mt-6 font-medium text-[17px] max-w-xl mx-auto break-keep">
+            편안한 방문을 위해 진료 시간과 위치를 안내해 드립니다.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <!-- 진료시간 -->
+          <div class="bg-[#FDFCFB] rounded-[2rem] p-8 lg:p-10 border border-[#E9E4DB] shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-full bg-[#F1F4ED] flex items-center justify-center text-[#3E522D]">
+                <i data-lucide="clock" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1A1F16] serif">진료시간</h3>
+            </div>
+            <ul class="space-y-4 text-[#555D4E] font-medium">
+              <li class="flex justify-between items-baseline gap-4">
+                <span class="text-[#1A1F16] font-semibold">월요일</span>
+                <span>10:00 – 20:00</span>
+              </li>
+              <li class="flex justify-between items-baseline gap-4">
+                <span class="text-[#1A1F16] font-semibold">화·수·목·금</span>
+                <span>10:00 – 19:00</span>
+              </li>
+              <li class="flex justify-between items-baseline gap-4">
+                <span class="text-[#1A1F16] font-semibold">토요일</span>
+                <span>10:00 – 15:00</span>
+              </li>
+              <li class="flex justify-between items-baseline gap-4">
+                <span class="text-[#1A1F16] font-semibold">점심시간</span>
+                <span>13:00 – 14:00 <span class="text-[12px] text-[#A1A89A]">(월~금)</span></span>
+              </li>
+              <li class="flex justify-between items-baseline gap-4 pt-2 border-t border-[#E9E4DB]">
+                <span class="text-[#1A1F16] font-semibold">일·공휴일</span>
+                <span>휴진</span>
+              </li>
+            </ul>
+          </div>
+          <!-- 오시는길 -->
+          <div class="bg-[#FDFCFB] rounded-[2rem] p-8 lg:p-10 border border-[#E9E4DB] shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-full bg-[#F1F4ED] flex items-center justify-center text-[#3E522D]">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1A1F16] serif">오시는길</h3>
+            </div>
+            <p class="text-[#555D4E] leading-relaxed mb-6">
+              서울시 강남구 도산대로 108 렉스타워 3층 <br />
+              <span class="text-[13px] text-[#A1A89A]">(신사역 1,2번 출구 사이)</span>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://map.naver.com/v5/search/트리니티여성의원" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3E522D] text-white font-bold text-sm hover:bg-[#2D3B1A] transition-colors">
+                <i data-lucide="map" class="w-4 h-4"></i>
+                지도 보기
+              </a>
+              <a href="tel:02-512-8875" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#E9E4DB] text-[#1A1F16] font-bold text-sm hover:border-[#3E522D] hover:bg-[#F1F4ED] transition-colors">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                02-512-8875
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- 지도 -->
+        <div class="mt-10 lg:mt-14 rounded-[2rem] overflow-hidden border border-[#E9E4DB] shadow-sm bg-[#F8F6F3]">
+          <iframe
+            src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EC%82%B0%EB%8C%80%EB%A1%9C%20108%20%EB%A0%89%EC%8A%A4%ED%83%80%EC%9B%8C%20%ED%8A%B8%EB%A6%AC%EB%8B%88%ED%8B%B0%EC%97%AC%EC%84%B1%EC%9D%98%EC%9B%90&hl=ko&z=17&output=embed"
+            width="100%"
+            height="400"
+            style="border: 0; min-height: 320px; display: block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="트리니티 여성의원 (도산대로 108 렉스타워 3층)"></iframe>
+          <p class="text-center text-[13px] text-[#A1A89A] py-3 px-4">
+            <a href="https://map.naver.com/v5/search/트리니티%20여성의원" target="_blank" rel="noopener noreferrer" class="text-[#3E522D] font-semibold underline">네이버 지도에서 보기</a>
+            <span class="mx-2">·</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=%EC%84%9C%EC%9A%B8+%EA%B0%95%EB%82%A8%EA%B5%AC+%EB%8F%84%EC%82%B0%EB%8C%80%EB%A1%9C+108+%EB%A0%89%EC%8A%A4%ED%83%80%EC%9B%8C+%ED%8A%B8%EB%A6%AC%EB%8B%88%ED%8B%B0%EC%97%AC%EC%84%B1%EC%9D%98%EC%9B%90" target="_blank" rel="noopener noreferrer" class="text-[#3E522D] font-semibold underline">길찾기</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <footer id="footer" class="bg-[#FDFCFB] text-[#5B6D4A] border-t border-[#E9E4DB]/60">
       <div class="max-w-4xl mx-auto px-6 pt-16 lg:pt-20 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-[#1A1F16] mb-12 serif tracking-tighter italic">Trinity Women's Clinic</h2>
